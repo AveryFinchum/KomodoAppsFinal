@@ -49,9 +49,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KomodoCafeMenuRepoUnitTests.cs" />
+    <Compile Include="01_KomodoCafeMenuRepoUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="KomodoClaimsUnitTests.cs" />
+    <Compile Include="02_KomodoClaimsUnitTests.cs" />
+    <Compile Include="03_KomodoBadgeSystemUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
