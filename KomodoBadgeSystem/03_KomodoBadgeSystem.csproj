@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KomodoBadgeSystemBadgeRepo.cs" />
+    <Compile Include="KomodoBadgeSystemDoorRepo.cs" />
+    <Compile Include="KomodoBadgeSystemUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
