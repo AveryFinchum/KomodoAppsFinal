@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KomodoCafeMenuConsole
 {
-    internal class KomodoCafeMenu
+    internal class KomodoCafeMenuUI
     {
     }
 }
