@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace KomodoCafeMenuConsole
 {
-    internal class Console
+    internal class KomodoCafeMenu
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

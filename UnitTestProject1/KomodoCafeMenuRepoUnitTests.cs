@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace KomodoInsurance
+namespace KomodoCafeMenuConsole
 {
     [TestClass]
-    public class UnitTest1
+    public class KomodoCafeMenuRepoUnitTests
     {
         [TestMethod]
         public void TestMethod1()
