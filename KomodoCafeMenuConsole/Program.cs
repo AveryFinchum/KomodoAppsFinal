@@ -10,6 +10,9 @@ namespace KomodoCafeMenuConsole
     {
         static void Main(string[] args)
         {
+            KomodoCafeMenuUI MenuConsole = new KomodoCafeMenuUI();
+            MenuConsole.Run();
+
         }
     }
 }
