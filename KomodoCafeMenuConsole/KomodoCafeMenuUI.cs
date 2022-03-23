@@ -23,12 +23,13 @@ namespace KomodoCafeMenuConsole
             while (mainMenu)
             {
                 Console.Clear();
-                Console.Write("Welcome to Komodo Cafe Meal Management App! \n" +
+                Console.WriteLine("Welcome to Komodo Cafe Meal Management App! \n" +
                     "Would you like to: \n" +
                     "1. View all meal types \n" +
                     "2. Add a new meal \n" +
                     "3. Delete an existing meal\n" +
                     "4. Exit Application");
+                
 
                 string userInput = Console.ReadLine().ToLower();
                 Console.Clear();
