@@ -1,7 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using _01_KomodoCafeMenuConsole;
+using _KomodoCafeMenuConsole;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
-namespace KomodoCafeMenuConsole
+namespace KomodoCafeMenuConsole_Tests
 {
     [TestClass]
     public class KomodoCafeMenuRepoUnitTests
@@ -39,9 +42,9 @@ namespace KomodoCafeMenuConsole
         {
             // Arrange
             MenuItem item = new MenuItem();
-            KomodoCafeRepo repo = new KomodoCafeRepo();
+            KomodoCafeMenuRepo repo = new KomodoCafeMenuRepo();
 
-            repo.AddItemsToMenuList(item);
+            repo.AddItemToMenuList(item);
             // Act
             List<MenuItem> MenuItems = repo.GetMenuItems();
 
@@ -51,10 +54,12 @@ namespace KomodoCafeMenuConsole
             Assert.IsTrue(directoryHasContent);
         }
 
+        private MenuItem _content;
+        private KomodoCafeMenuRepo _repo;
         [TestInitialize]
         public void Arrange()
         {
-            _repo = new KomodoCafeRepo();
+            _repo = new KomodoCafeMenuRepo();
             _content = new MenuItem(1, "Human Food Name", "Some normal Human food. Mmm, tasty...", "Normal Vegtable, Normal Fruit, Some normal protien, mmmm...", 4.20m);
             _repo.AddItemToMenuList(_content);
         }
@@ -63,10 +68,10 @@ namespace KomodoCafeMenuConsole
         public void DeleteExistingMenuItem_ShouldReturnTrue()
         {
             // Arrange
-            MenuItem item = _repo.GetContentByNumber(1);
+            Arrange();
 
             // Act
-            bool removeResult = _repo.DeleteExistingMenuItem(item);
+            bool removeResult = _repo.DeleteExistingMenuItem(_content);
 
             // Assert
             Assert.IsTrue(removeResult);
