@@ -1,4 +1,5 @@
 ﻿using _KomodoClaims;
+using KomodoMenuConsole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace _KomodoClaimsMenuConsole
     {
 
 
-        private readonly KomodoCafeMenuRepo _menuRepo = new KomodoCafeMenuRepo();
+        private readonly KomodoClaimsRepo _claimsRepo = new KomodoClaimsRepo();
 
         internal void Run()
         {
@@ -146,7 +147,7 @@ namespace _KomodoClaimsMenuConsole
 
             Console.WriteLine("");
 
-            if (_menuRepo.AddItemToMenuList(tempClaim))
+            if (_claimsRepo.AddItemToClaims(tempClaim))
             {
                 Console.WriteLine("Success!");
                 AnyKey();
