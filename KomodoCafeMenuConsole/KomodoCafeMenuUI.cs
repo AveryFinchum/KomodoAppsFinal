@@ -9,7 +9,7 @@ namespace KomodoCafeMenuConsole
 {
     internal class KomodoCafeMenuUI
     {
-        private readonly MenuItem _menuRepo = new MenuItem();
+        private readonly KomodoCafeMenuRepo _menuRepo = new KomodoCafeMenuRepo();
 
         internal void Run()
         {
