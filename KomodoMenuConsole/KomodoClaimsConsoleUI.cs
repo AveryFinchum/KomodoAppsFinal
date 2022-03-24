@@ -69,6 +69,7 @@ namespace _KomodoClaimsMenuConsole
         }
 
 
+
         //************************************HELPER METHODS*************************************
         private void DisplayContent(KomodoClaim item)
         {
@@ -76,7 +77,7 @@ namespace _KomodoClaimsMenuConsole
                $"Meal Number: {item.ClaimID}\n" +
                $"Name:        {item.ClaimType}\n" +
                $"Description: {item.Description}\n" +
-               $"Ingredients: {item.Ingredients}\n" +
+               $"Ingredients: {item.DateOfIncident}\n" +
                $"Price:       {item.ClaimAmount}\n");
         }
         private void ConsoleWelcomeScreen()
