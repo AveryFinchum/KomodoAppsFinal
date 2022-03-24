@@ -29,9 +29,10 @@ namespace KomodoCafeMenuConsole
                     "Would you like to: \n" +
                     "1. View all meal types \n" +
                     "2. Add a new meal \n" +
-                    "3. Delete an existing meal\n" +
-                    "4. Exit Application");
-                
+                    "3. View a meal by number \n" +
+                    "4. Delete an existing meal\n" +
+                    "5. Exit Application");
+
 
                 string userInput = Console.ReadLine().ToLower();
                 Console.Clear();
@@ -40,17 +41,21 @@ namespace KomodoCafeMenuConsole
                     case "1":
                     case "l":
                     case "v":
-                        //ListAllMeals();
+                        ListAllMeals();
                         break;
                     case "2":
                     case "a":
-                        //AddMeal();
+                        AddMeal();
                         break;
                     case "3":
                     case "d":
-                        //DeleteMeal();
+                        GetMealBynumber();
                         break;
                     case "4":
+                    case "m":
+                        //DeleteMeal();
+                        break;
+                    case "5":
                     case "exit":
                     case "e":
                         mainMenu = false;
@@ -62,7 +67,47 @@ namespace KomodoCafeMenuConsole
 
 
         //*************************************MENU METHODS**************************************
+        //List all in order
+        private void ListAllMeals()
+        {
+            //get all items in menu repo
+            List<MenuItem> item = _menuRepo.GetMenuItems();
+            if (item.Count != 0)
+            {
+                foreach (MenuItem meal in item)
+                {
+                    DisplayContent(meal);
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are no meals to list");
+            }
+            AnyKey();
+        }
+        //List all of one meal number(ideally this will list only one meal)
+         private void GetMealBynumber()
+        {
+            Console.Write("Enter a meal number: ");
+            // Capture number
+            int number = int.Parse(Console.ReadLine());
+            // Look up content
+            List<MenuItem> item = _menuRepo.GetMenuItem(number);
+            if (item.Count != 0)
+            {
+                foreach (MenuItem meal in item)
+                {
+                    DisplayContent(meal);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find a meal by that number");
+            }
+            AnyKey();
+        }
 
+        //Add
         private void AddMeal()
         {
             //Console.Clear(); 
@@ -79,7 +124,7 @@ namespace KomodoCafeMenuConsole
             // Description
             Console.Write("Please enter a Description: ");
             tempMenuItem.Description = Console.ReadLine();
-            
+
             // Ingredients
             Console.Write("Please enter the list of Ingredients: ");
             tempMenuItem.Ingredients = Console.ReadLine();
@@ -103,9 +148,16 @@ namespace KomodoCafeMenuConsole
         }
 
 
-
-
         //************************************HELPER METHODS*************************************
+        private void DisplayContent(MenuItem item)
+        {
+            Console.WriteLine("" +
+               $"Meal Number: {item.Number}\n" +
+               $"Name:        {item.Name}\n" +
+               $"Description: {item.Description}\n" +
+               $"Ingredients: {item.Ingredients}\n" +
+               $"Price:       {item.Price}\n");
+        }
         private void ConsoleWelcomeScreen()
         {
             string welcomeScreen = @"
@@ -132,7 +184,7 @@ namespace KomodoCafeMenuConsole
             Thread.Sleep(1200);
             //AnyKey();
 
-        }   
+        }
         private void Goodbye()
         {
             string GoodbyeScreen = @"
@@ -158,7 +210,6 @@ namespace KomodoCafeMenuConsole
             Thread.Sleep(1200);
 
         }
-
         private void AnyKey()
         {
             Thread.Sleep(600);
