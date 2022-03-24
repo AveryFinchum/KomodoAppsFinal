@@ -1,7 +1,5 @@
-﻿using _01_KomodoCafeMenuConsole;
-using _KomodoCafeMenuConsole;
+﻿using _KomodoCafeMenuConsole;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 
 namespace KomodoCafeMenuConsole_Tests
