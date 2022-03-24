@@ -53,7 +53,7 @@ namespace KomodoCafeMenuConsole
                         break;
                     case "4":
                     case "m":
-                        //DeleteMeal();
+                        DeleteMeal();
                         break;
                     case "5":
                     case "exit":
@@ -146,7 +146,39 @@ namespace KomodoCafeMenuConsole
                 AnyKey();
             }
         }
+        // Delete
+        private void DeleteMeal()
+        {
+            Console.Clear();
 
+            List<MenuItem> contentList = _menuRepo.GetMenuItems();
+            int count = 1;
+            foreach (MenuItem item in contentList)
+            {
+                Console.WriteLine($"{count}. {item.Number}");
+                count++;
+            }
+            Console.Write("What content do you want to remove: ");
+            int itemMenuID = int.Parse(Console.ReadLine());
+            int menuItemIndex = itemMenuID - 1;
+            if (menuItemIndex >= 0 && menuItemIndex < contentList.Count())
+            {
+                MenuItem intendedMenuDeletion = contentList[menuItemIndex];
+                if (_menuRepo.DeleteExistingMenuItem(intendedMenuDeletion))
+                {
+                    Console.WriteLine($"{intendedMenuDeletion.Number} deleted successfully!");
+                }
+                else
+                {
+                    Console.WriteLine("Something went wrong.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No Meal has that Number");
+            }
+            AnyKey();
+        }
 
         //************************************HELPER METHODS*************************************
         private void DisplayContent(MenuItem item)

@@ -44,7 +44,7 @@ namespace KomodoCafeMenuConsole
             {
                 ItemsByNumber.Add(item);
             }
-            // LINQ order by number
+            // LINQ order by meal number
             return ItemsByNumber.OrderBy(c => c.Number).ToList();
         }
 
