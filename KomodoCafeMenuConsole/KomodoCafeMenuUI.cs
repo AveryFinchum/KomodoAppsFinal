@@ -9,6 +9,8 @@ namespace KomodoCafeMenuConsole
 {
     internal class KomodoCafeMenuUI
     {
+        private readonly MenuItem _menuRepo = new MenuItem();
+
         internal void Run()
         {
             ConsoleWelcomeScreen();
@@ -61,7 +63,44 @@ namespace KomodoCafeMenuConsole
 
         //*************************************MENU METHODS**************************************
 
+        private void AddMeal()
+        {
+            //Console.Clear(); 
+            MenuItem tempMenuItem = new MenuItem();
 
+            // Meal Number
+            Console.Write("Please enter a Meal Number: ");
+            tempMenuItem.Number = int.Parse(Console.ReadLine());
+
+            // Name
+            Console.Write("Please enter a Name: ");
+            tempMenuItem.Name = Console.ReadLine();
+
+            // Description
+            Console.Write("Please enter a Description: ");
+            tempMenuItem.Description = Console.ReadLine();
+            
+            // Ingredients
+            Console.Write("Please enter the list of Ingredients: ");
+            tempMenuItem.Ingredients = Console.ReadLine();
+
+            // Price
+            Console.Write("Please enter the Total Price of the Item: ");
+            tempMenuItem.Price = Decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("");
+
+            if (_menuRepo.AddItemToMenuList(tempMenuItem))
+            {
+                Console.WriteLine("Success!");
+                AnyKey();
+            }
+            else
+            {
+                Console.WriteLine("Failure!");
+                AnyKey();
+            }
+        }
 
 
 

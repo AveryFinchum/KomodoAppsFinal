@@ -11,6 +11,7 @@ namespace KomodoCafeMenuConsole
         protected List<MenuItem> _menuItems = new List<MenuItem>();
         //list of menu item objects to store the whole Komodo's program of food
 
+        //Repository actions:
         //Create
         public bool AddItemToMenuList(MenuItem item)
         {
@@ -20,7 +21,7 @@ namespace KomodoCafeMenuConsole
             return wasAdded;
         }
 
-        //Read
+        //Read (one)
         public List<MenuItem> GetMenuItem(int number)
         {
             List<MenuItem> ItemByNumber = new List<MenuItem>();
@@ -35,7 +36,7 @@ namespace KomodoCafeMenuConsole
             return ItemByNumber.ToList(); // to list is needed in case this returns two items with the same number
         }
 
-        //List by order number
+        //Read (all by order number)
         public List<MenuItem> GetMenuItems()
         {
             List<MenuItem> ItemsByNumber = new List<MenuItem>();
