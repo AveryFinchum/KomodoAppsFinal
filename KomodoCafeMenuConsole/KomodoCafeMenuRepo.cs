@@ -32,7 +32,6 @@ namespace _KomodoCafeMenuConsole
                     ItemByNumber.Add(item);
                 }
             }
-            // LINQ order by number
             return ItemByNumber.ToList(); // to list is needed in case this returns two items with the same number
         }
 

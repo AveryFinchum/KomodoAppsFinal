@@ -12,7 +12,7 @@ namespace _KomodoClaimsMenuConsole
     {
 
 
-        //private readonly KomodoCafeMenuRepo _menuRepo = new KomodoCafeMenuRepo();
+        private readonly KomodoCafeMenuRepo _menuRepo = new KomodoCafeMenuRepo();
 
         internal void Run()
         {
@@ -68,17 +68,108 @@ namespace _KomodoClaimsMenuConsole
             }
         }
 
+        //*************************************MENU METHODS**************************************
+        //List all in order
+        /*
+        private void ListAllMeals()
+        {
+            //get all items in menu repo
+            List<MenuItem> item = _menuRepo.GetMenuItems();
+            if (item.Count != 0)
+            {
+                foreach (MenuItem meal in item)
+                {
+                    DisplayContent(meal);
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are no meals to list");
+            }
+            AnyKey();
+        }
+        //List all of one meal number(ideally this will list only one meal)
+        private void GetMealBynumber()
+        {
+            Console.Write("Enter a meal number: ");
+            // Capture number
+            int number = int.Parse(Console.ReadLine());
+            // Look up content
+            List<MenuItem> item = _menuRepo.GetMenuItem(number);
+            if (item.Count != 0)
+            {
+                foreach (MenuItem meal in item)
+                {
+                    DisplayContent(meal);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find a meal by that number");
+            }
+            AnyKey();
+        }
+        */
 
+        //Add
+        private void AddMeal()
+        {
+            //Console.Clear(); 
+            KomodoClaim tempClaim = new KomodoClaim();
+
+            // Claim Number
+            Console.Write("Please enter a Claim ID Number: ");
+            tempClaim.ClaimID = int.Parse(Console.ReadLine());
+
+            // Claim Type
+            Console.Write("Please enter a Claim Type from one of the following:\n" +
+                          " 1. Car\n" +
+                          " 2. Home\n" +
+                          " 3. Theft\n");
+            tempClaim.ClaimType = (KomodoClaim.ClaimTypes)int.Parse(Console.ReadLine());
+
+            // Claim Description
+            Console.Write("Please enter the Claim's Description: ");
+            tempClaim.Description = Console.ReadLine();
+
+            // Claim Amount
+            Console.Write("Please enter the Claim's dollar amount: ");
+            tempClaim.ClaimAmount = decimal.Parse(Console.ReadLine());
+
+            // Date of incident
+            Console.Write("Please enter the date the incident occured: ");
+            tempClaim.DateOfIncident = Convert.ToDateTime(Console.ReadLine());
+            
+            // Date of Claim 
+            Console.Write("Please enter the date the claim was made: ");
+            tempClaim.DateOfClaim = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("");
+
+            if (_menuRepo.AddItemToMenuList(tempClaim))
+            {
+                Console.WriteLine("Success!");
+                AnyKey();
+            }
+            else
+            {
+                Console.WriteLine("Failure!");
+                AnyKey();
+            }
+        }
 
         //************************************HELPER METHODS*************************************
-        private void DisplayContent(KomodoClaim item)
+        private void DisplayClaim(KomodoClaim claim)
         {
             Console.WriteLine("" +
-               $"Meal Number: {item.ClaimID}\n" +
-               $"Name:        {item.ClaimType}\n" +
-               $"Description: {item.Description}\n" +
-               $"Ingredients: {item.DateOfIncident}\n" +
-               $"Price:       {item.ClaimAmount}\n");
+               $"Claim ID:         {claim.ClaimID}\n" +
+               $"Claim Type:       {claim.ClaimType}\n" +
+               $"Description:      {claim.Description}\n" +
+               $"Claim Amount:     {claim.ClaimAmount}\n" +
+               $"Date of Incident: {claim.DateOfIncident}\n" +
+               $"Date of Claim:    {claim.DateOfClaim}\n" +
+               $"Valid Claim:      {claim.IsValid}\n" +
+               "");
         }
         private void ConsoleWelcomeScreen()
         {

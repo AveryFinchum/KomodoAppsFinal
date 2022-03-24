@@ -13,7 +13,7 @@ namespace _KomodoClaims
         /// Requirements from contract:
         ///     ClaimID
         ///     ClaimType: Car, Home, Theft
-        ///     Descripttion
+        ///     Description
         ///     ClaimAmount
         ///     DateOfIncident
         ///     DateOfClaim
@@ -58,7 +58,7 @@ namespace _KomodoClaims
         public decimal ClaimAmount { get; set; }
         public DateTime DateOfIncident { get; set; }
         public DateTime DateOfClaim { get; set; }
-        private bool IsValid { get; set; }
+        public bool IsValid {  get; private set; }
 
     }
 }
