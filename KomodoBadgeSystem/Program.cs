@@ -10,6 +10,8 @@ namespace KomodoBadgeSystem
     {
         static void Main(string[] args)
         {
+            KomodoBadgeSystemUI MenuConsole = new KomodoBadgeSystemUI();
+            MenuConsole.Run();
         }
     }
 }

@@ -8,5 +8,6 @@ namespace KomodoBadgeSystem
 {
     internal class KomodoBadgeSystemBadgeRepo
     {
+
     }
 }
