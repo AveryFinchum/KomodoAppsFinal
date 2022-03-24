@@ -10,7 +10,7 @@ namespace KomodoCafeMenuConsole
     public class MenuItem
     {
 
-        public MenuItem() { }
+        //public MenuItem() { } //no need for a default onstructor here
         public MenuItem(int number, string name, string description, string ingredients, decimal price) 
         {
             Number = number;

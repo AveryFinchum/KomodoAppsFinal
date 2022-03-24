@@ -59,13 +59,14 @@ namespace KomodoCafeMenuConsole
         }
 
 
+        //*************************************MENU METHODS**************************************
 
 
 
 
 
 
-        //************************************HELPER FUNCTIONS*************************************
+        //************************************HELPER METHODS*************************************
         private void ConsoleWelcomeScreen()
         {
             string welcomeScreen = @"
